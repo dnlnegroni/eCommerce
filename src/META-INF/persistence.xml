@@ -8,8 +8,9 @@
 		<class>it.uniroma3.bean.Prodotto</class>
 		<class>it.uniroma3.bean.Ordine</class>
 		<class>it.uniroma3.bean.RigaOrdine</class>
-		<class>it.uniroma3.bean.Utente</class>
+		<class>it.uniroma3.bean.Cliente</class>
 		<class>it.uniroma3.bean.Fornitore</class>
+		<class>it.uniroma3.bean.Amministratore</class>
 		<properties>
 			<property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver" />
 			<property name="openjpa.ConnectionUserName" value="root" />

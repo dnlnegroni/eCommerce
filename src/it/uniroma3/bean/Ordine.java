@@ -35,7 +35,7 @@ public class Ordine {
 	private List<RigaOrdine> righeOrdine;
 	
 	@ManyToOne
-	private Utente cliente;
+	private Cliente cliente;
 
 	/**
 	 * @return the id
@@ -110,14 +110,14 @@ public class Ordine {
 	/**
 	 * @return the cliente
 	 */
-	public Utente getCliente() {
+	public Cliente getCliente() {
 		return cliente;
 	}
 
 	/**
 	 * @param cliente the cliente to set
 	 */
-	public void setCliente(Utente cliente) {
+	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 	

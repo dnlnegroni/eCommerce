@@ -1,18 +1,16 @@
 package it.uniroma3.bean;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Utente {
+public class Amministratore {
 	
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
@@ -32,10 +30,7 @@ public class Utente {
 	
 	private String email;
 	
-	private String ruolo;
-	
-	@OneToMany(mappedBy="cliente")
-	private List<Ordine> listaOrdini;
+	private String password;
 
 	/**
 	 * @return the id
@@ -136,31 +131,17 @@ public class Utente {
 	}
 
 	/**
-	 * @return the ruolo
+	 * @return the password
 	 */
-	public String getRuolo() {
-		return ruolo;
+	public String getPassword() {
+		return password;
 	}
 
 	/**
-	 * @param ruolo the ruolo to set
+	 * @param password the password to set
 	 */
-	public void setRuolo(String ruolo) {
-		this.ruolo = ruolo;
-	}
-
-	/**
-	 * @return the listaOrdini
-	 */
-	public List<Ordine> getListaOrdini() {
-		return listaOrdini;
-	}
-
-	/**
-	 * @param listaOrdini the listaOrdini to set
-	 */
-	public void setListaOrdini(List<Ordine> listaOrdini) {
-		this.listaOrdini = listaOrdini;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 }

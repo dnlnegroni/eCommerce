@@ -10,30 +10,29 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.sql.DataSource;
 
-//import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 public class ProductFacade {
 	
     private EntityManager entityManager;
     private EntityManagerFactory emf;
-//    private MysqlDataSource datasource;
-//    Context context;
+    private MysqlDataSource datasource;
+    Context context;
 
 	public ProductFacade()  {
 		emf = Persistence.createEntityManagerFactory("ecommerce-unit");
 		entityManager = emf.createEntityManager();
-//		try {
-//			context = new InitialContext();
-//			datasource = new MysqlDataSource();
-//			datasource.setUrl("java:/comp/env/localhost/ecommerce");
-//			datasource.setUser("root");
-//			datasource.setPassword("");
-//		} catch (NamingException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			context = new InitialContext();
+			datasource = new MysqlDataSource();
+			datasource.setUrl("java:/comp/env/localhost/ecommerce");
+			datasource.setUser("root");
+			datasource.setPassword("");
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public Prodotto createProduct(String codice, String nome, Double costo, String descrizione, Integer quantita) {
