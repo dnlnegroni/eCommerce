@@ -1,0 +1,19 @@
+package it.uniroma3.controller.action;
+
+import java.util.List;
+
+import it.uniroma3.bean.Prodotto;
+import it.uniroma3.bean.ProductFacade;
+
+import javax.servlet.http.HttpServletRequest;
+
+public class ListProduct implements Action {
+
+	public String perform(HttpServletRequest request) {
+		
+		ProductFacade facade = new ProductFacade();
+		List<Prodotto> products = facade.getAllProducts();
+		request.setAttribute("products", products);	
+		return "/products.jsp";
+	}
+}
