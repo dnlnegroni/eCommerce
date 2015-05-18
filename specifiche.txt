@@ -1,1 +1,5 @@
 TODO: Descrizione testuale dei casi d'uso.
+
+1. Creazione Cliente (sia come form di registrazione nella index button registrati) sia da parte dell'amministratore.
+2. Creazione Prodotto (attore: amministratore)
+3. Visualizzazione lista prodotti

@@ -5,16 +5,12 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1" />
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="<c:url value="/bootstrap/css/bootstrap.min.css" />" />
+	<script type="text/javascript" src="<c:url value="/bootstrap/js/bootstrap.min.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/jquery/jquery-1.11.3.min.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/bootstrap/js/bootstrap.min.js" />"></script>
+	<link rel="stylesheet" type="text/css" href="<c:url value="/css/template.css" />" />
 	<title>Lista Prodotti</title>
-	
-	<!-- Import dei css -->
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-	<!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.css.map">
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.css" >
-	<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css" >
-	<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">  -->
-    <!-- <link rel="stylesheet" type="text/css" href="<c:url value="/css/template.css" />" />  -->
     
     <!-- Javascript -->
     <script type="text/javascript">
@@ -23,7 +19,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Products</h1>
+		<h1>Lista Prodotti</h1>
 		<table class="table table-striped">
 			<thead>
 				<tr>
