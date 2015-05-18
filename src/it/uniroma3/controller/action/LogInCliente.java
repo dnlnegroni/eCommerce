@@ -3,9 +3,9 @@
  */
 package it.uniroma3.controller.action;
 
-import it.uniroma3.bean.Amministratore;
-import it.uniroma3.bean.Cliente;
-import it.uniroma3.bean.LogInFacade;
+import it.uniroma3.model.Amministratore;
+import it.uniroma3.model.Cliente;
+import it.uniroma3.model.LogInFacade;
 
 import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;

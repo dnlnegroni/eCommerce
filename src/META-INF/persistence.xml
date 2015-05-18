@@ -5,12 +5,12 @@
 	<persistence-unit name="ecommerce-unit" transaction-type="RESOURCE_LOCAL">
 		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
 		<non-jta-data-source>postgresDataSource</non-jta-data-source>
-		<class>it.uniroma3.bean.Prodotto</class>
-		<class>it.uniroma3.bean.Ordine</class>
-		<class>it.uniroma3.bean.RigaOrdine</class>
-		<class>it.uniroma3.bean.Cliente</class>
-		<class>it.uniroma3.bean.Fornitore</class>
-		<class>it.uniroma3.bean.Amministratore</class>
+		<class>it.uniroma3.model.Prodotto</class>
+		<class>it.uniroma3.model.Ordine</class>
+		<class>it.uniroma3.model.RigaOrdine</class>
+		<class>it.uniroma3.model.Cliente</class>
+		<class>it.uniroma3.model.Fornitore</class>
+		<class>it.uniroma3.model.Amministratore</class>
 		<properties>
 			<property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver" />
 			<property name="openjpa.ConnectionUserName" value="root" />

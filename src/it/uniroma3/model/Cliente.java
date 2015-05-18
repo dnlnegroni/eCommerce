@@ -1,4 +1,4 @@
-package it.uniroma3.bean;
+package it.uniroma3.model;
 
 import java.util.Date;
 import java.util.List;
@@ -36,6 +36,16 @@ public class Cliente {
 		
 	@OneToMany(mappedBy="cliente")
 	private List<Ordine> listaOrdini;
+
+	public Cliente(String nome, String cognome, String indirizzo, String email, String password, Date dataNascita, Date dataRegistrazione) {
+		this.nome = nome;
+		this.cognome = cognome;
+		this.indirizzo = indirizzo;
+		this.email = email;
+		this.password = password;
+		this.dataNascita = dataNascita;
+		this.dataRegistrazione = dataRegistrazione;
+	}
 
 	/**
 	 * @return the id

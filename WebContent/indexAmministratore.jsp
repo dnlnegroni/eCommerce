@@ -7,6 +7,7 @@
 <title>IndexAmministratore</title>
 </head>
 <body>
-	<a href="<c:url value="/newProduct.jsp" />">Insert a new product</a>
+	<a href="<c:url value="/newProduct.jsp" />">Inserisci Prodotto</a>
+	<a href="<c:url value="/newCliente.jsp" />">Inserisci Cliente</a>
 </body>
 </html>

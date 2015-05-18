@@ -1,8 +1,8 @@
 package it.uniroma3.controller.action;
 
 import it.uniroma3.controller.helper.HelperProduct;
-import it.uniroma3.bean.Prodotto;
-import it.uniroma3.bean.ProductFacade;
+import it.uniroma3.model.Prodotto;
+import it.uniroma3.model.ProductFacade;
 
 import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;

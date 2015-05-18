@@ -3,10 +3,10 @@
  */
 package it.uniroma3.controller.action;
 
-import it.uniroma3.bean.Amministratore;
-import it.uniroma3.bean.LogInFacade;
-import it.uniroma3.bean.Prodotto;
-import it.uniroma3.bean.ProductFacade;
+import it.uniroma3.model.Amministratore;
+import it.uniroma3.model.LogInFacade;
+import it.uniroma3.model.Prodotto;
+import it.uniroma3.model.ProductFacade;
 
 import java.util.List;
 

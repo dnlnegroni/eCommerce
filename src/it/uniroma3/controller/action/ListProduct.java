@@ -2,8 +2,8 @@ package it.uniroma3.controller.action;
 
 import java.util.List;
 
-import it.uniroma3.bean.Prodotto;
-import it.uniroma3.bean.ProductFacade;
+import it.uniroma3.model.Prodotto;
+import it.uniroma3.model.ProductFacade;
 
 import javax.servlet.http.HttpServletRequest;
 
