@@ -21,6 +21,16 @@ public class Fornitore {
 	@ManyToMany(mappedBy="fornitori")
 	private List<Prodotto> prodotti;
 	
+	public Fornitore(){
+		
+	}
+	
+	public Fornitore(String pIva, String ind, String mail, String tel){
+		this.partitaIva = pIva;
+		this.indirizzo = ind;
+		this.email = mail;
+		this.telefono = tel;
+	}
 	/**
 	 * @return the id
 	 */

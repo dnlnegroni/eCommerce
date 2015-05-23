@@ -36,7 +36,10 @@ public class Cliente {
 		
 	@OneToMany(mappedBy="cliente")
 	private List<Ordine> listaOrdini;
-
+	
+	public Cliente(){
+	}
+	
 	public Cliente(String nome, String cognome, String indirizzo, String email, String password, Date dataNascita, Date dataRegistrazione) {
 		this.nome = nome;
 		this.cognome = cognome;

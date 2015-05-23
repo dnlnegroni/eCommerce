@@ -13,7 +13,7 @@ public class ListProduct implements Action {
 		
 		ProductFacade facade = new ProductFacade();
 		List<Prodotto> products = facade.getAllProducts();
-		request.setAttribute("products", products);	
+		request.setAttribute("products", products);
 		return "/products.jsp";
 	}
 }

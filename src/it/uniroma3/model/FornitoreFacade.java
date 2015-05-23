@@ -1,10 +1,6 @@
-/**
- * 
- */
 package it.uniroma3.model;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -13,22 +9,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
-/**
- * @author daniele
- *
- */
-public class ClienteFacade {
-
+public class FornitoreFacade {
+	
 	private EntityManager entityManager;
 	private EntityManagerFactory emf;
 	private MysqlDataSource datasource;
 	Context context;
 
-	public ClienteFacade()  {
+	public FornitoreFacade()  {
 		emf = Persistence.createEntityManagerFactory("ecommerce-unit");
 		entityManager = emf.createEntityManager();
 		try {
@@ -43,34 +34,15 @@ public class ClienteFacade {
 		}
 	}
 	
-	public Cliente createCliente(String nome, String cognome, String indirizzo, String email, String password, Date dataNascita, Date dataRegistrazione) {
-		Cliente cliente = new Cliente(nome, cognome, indirizzo, email, password, dataNascita, dataRegistrazione);
+	public Fornitore createFornitore(String pIva, String indirizzo, String email, String telefono) {
+		Fornitore f = new Fornitore(pIva, indirizzo, email, telefono);
 		EntityTransaction tx = entityManager.getTransaction();
 		tx.begin();
-		entityManager.persist(cliente);
+//		entityManager.persist(f);
 		tx.commit();
 		entityManager.close();
 		emf.close();
-		return cliente;
-	}
-	
-	public Cliente getCliente(Long id) {
-		Cliente cliente = entityManager.find(Cliente.class, id);
-		entityManager.close();
-		emf.close();
-		return cliente;
-	}
-	
-	public List<Ordine> getOrders(Long id) {
-		Query q = this.entityManager.createQuery("SELECT c FROM Cliente c WHERE c.id= :id" );
-		q.setParameter("id", id);
-		List <Cliente> l = q.getResultList();
-		Cliente c = l.get(0);
-		List <Ordine> lo = c.getListaOrdini();
-		entityManager.close();
-		emf.close();
-		return lo;
-		
+		return f;
 	}
 	
 }

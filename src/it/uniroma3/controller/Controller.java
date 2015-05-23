@@ -1,6 +1,7 @@
 package it.uniroma3.controller;
 
 import it.uniroma3.controller.action.Action;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -25,9 +26,17 @@ public class Controller extends HttpServlet {
 		try {
 			action = (Action)Class.forName(actionName).newInstance();
 			nextPage = action.perform(request);
-		} catch (Exception e) {
-			nextPage = "/test.jsp";
-		} 
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
 		nextPage = response.encodeURL(nextPage);
 		ServletContext application  = getServletContext();
 		RequestDispatcher rd = application.getRequestDispatcher(nextPage);

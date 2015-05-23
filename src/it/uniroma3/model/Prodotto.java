@@ -1,5 +1,6 @@
 package it.uniroma3.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -33,6 +34,7 @@ public class Prodotto {
 		this.costo = costo;
 		this.descrizione = descrizione;
 		this.quantita = quantita;
+		this.fornitori = new ArrayList<Fornitore>();
 	}
 	
 	/**

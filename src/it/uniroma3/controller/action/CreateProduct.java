@@ -24,10 +24,10 @@ public class CreateProduct implements Action {
 			Integer quantity = Integer.parseInt(request.getParameter("quantita"));
 			
 			ProductFacade facade = new ProductFacade();
-			Prodotto product = facade.createProduct(code, name, price, description, quantity);
-			request.setAttribute("product", product);
+			Prodotto product = new Prodotto(code, name, price, description, quantity);
+			request.getSession().setAttribute("prodotto", product);
 			
-			return "/product.jsp";
+			return "/newFornitore.jsp";
 		} else
 			return "/newProduct.jsp";
 	}

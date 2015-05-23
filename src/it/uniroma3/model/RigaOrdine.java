@@ -15,7 +15,18 @@ public class RigaOrdine {
 	
 	@OneToOne
 	private Prodotto prodotto;
+	private String nomeProdotto;
 	private Integer quantita;
+	private Double prezzoUnitario;
+	
+	
+
+	public RigaOrdine(Prodotto p, Integer q){
+		this.prodotto=p;
+		this.quantita=q;
+		this.nomeProdotto=p.getNome();
+		this.prezzoUnitario=p.getCosto();
+	}
 	
 	/**
 	 * @return the id
@@ -59,4 +70,20 @@ public class RigaOrdine {
 		this.quantita = quantita;
 	}
 	
+	public String getNomeProdotto() {
+		return nomeProdotto;
+	}
+
+	public void setNomeProdotto(String nomeProdotto) {
+		this.nomeProdotto = nomeProdotto;
+	}
+
+	public Double getPrezzoUnitario() {
+		return prezzoUnitario;
+	}
+
+	public void setPrezzoUnitario(Double double1) {
+		this.prezzoUnitario = double1;
+	}
+
 }

@@ -1,5 +1,6 @@
 package it.uniroma3.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -36,6 +37,11 @@ public class Ordine {
 	
 	@ManyToOne
 	private Cliente cliente;
+	
+	public Ordine (){
+		this.dataApertura= new Date();
+		this.righeOrdine= new ArrayList<RigaOrdine>();
+	}
 
 	/**
 	 * @return the id

@@ -1,6 +1,5 @@
- <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<meta charset="ISO-8859-1" />
@@ -10,11 +9,10 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="/bootstrap/css/bootstrap.min.css" />" />
 	<link rel="stylesheet" type="text/css" href="<c:url value="/css/template.css" />" />
 	<link rel="stylesheet" type="text/css" href="<c:url value="/bootstrap/css/jquery-ui.css" />" />
-<title>Invalid product</title>
+	<title>Error</title>
 </head>
 <body>
-<h1>Invalid Product</h1>
-<div>You are searching a product that does not exist</div>
-<a href="<c:url value="/index.jsp" />">Home</a>
+<div>
+<h1>ERRORE</h1></div>
 </body>
 </html>

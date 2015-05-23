@@ -46,6 +46,16 @@ public class ProductFacade {
 		return product;
 	}
 	
+	public Prodotto persisteProduct(Prodotto p) {
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+		entityManager.persist(p);
+		tx.commit();
+		entityManager.close();
+		emf.close();
+		return p;
+	}
+	
 	public Prodotto getProduct(Long id) {
 		Prodotto product = entityManager.find(Prodotto.class, id);
 		entityManager.close();

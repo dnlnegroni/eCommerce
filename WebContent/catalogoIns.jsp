@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="/bootstrap/css/bootstrap.min.css" />" />
 	<link rel="stylesheet" type="text/css" href="<c:url value="/css/template.css" />" />
 	<link rel="stylesheet" type="text/css" href="<c:url value="/bootstrap/css/jquery-ui.css" />" />
-	<title>Lista Prodotti</title>
+	<title>Crea Ordine</title>
     
     <!-- Javascript -->
     <script type="text/javascript">
@@ -19,7 +19,6 @@
     </script>
 </head>
 <body>
-	
 	<h1 align="center">
 		eCommerce <br /> <small> Progetto Siw </small>
 	</h1>
@@ -29,13 +28,10 @@
 				<a class="navbar-brand" href="#">eCommerce</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<form class="navbar-form navbar-left" role="search">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Cerca...">
-					</div>
-					<button type="submit" class="btn btn-default">Cerca</button>
-				</form>
 				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="#"> Prodotti nel carrello: ${prodottiNelCarrello}</a>
+					</li>
 					<li>	
 						<a href="<c:url value="/controller/cliente.get?id=${cliente.id}"/>"> Bentornato, ${cliente.nome} ${cliente.cognome}	</a>
 					</li>
@@ -50,7 +46,6 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	
 	<div class="container">
 		<h1>Lista Prodotti</h1>
 		<table class="table table-striped">
@@ -61,6 +56,9 @@
 					</th>
 					<th>
 						Costo
+					</th>
+					<th>
+						Quantita In magazzino
 					</th>
 				</tr>
 			</thead>
@@ -73,10 +71,16 @@
 							</a>
 						</td>
 						<td>${prodotto.costo}</td>
+						<td>${prodotto.quantita}</td>
+						<td class="input_scoreMedium">
+							<a class="btn btn-default" href="<c:url value="/controller/product2.get?id=${prodotto.id}" />" role="button">Aggiungi al carrello</a>
+						</td>
 					</tr>
 				</c:forEach>
+
 			</tbody>
 		</table>
 	</div>
+	<a class="btn btn-default" href="<c:url value="/controller/ordine.dettaglio" />" role="button">Dettaglio Ordine</a>
 </body>
 </html>

@@ -3,6 +3,7 @@
  */
 package it.uniroma3.controller.action;
 
+import it.uniroma3.controller.action.Action;
 import it.uniroma3.model.Amministratore;
 import it.uniroma3.model.Cliente;
 import it.uniroma3.model.LogInFacade;
@@ -25,6 +26,7 @@ public class LogInCliente implements Action{
 		LogInFacade f = new LogInFacade();
 		Cliente cliente = f.getCliente(email);
 		request.setAttribute("cliente", cliente);
+		request.getSession().setAttribute("cliente", cliente);
 		if (!(cliente.getPassword().equals(pwd))) {
 			/*TODO:
 			 * Aggiungere gestione della password sbagliata

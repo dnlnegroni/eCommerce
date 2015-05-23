@@ -28,6 +28,7 @@ public class LogInAmministratore implements Action{
 		LogInFacade f = new LogInFacade();
 		Amministratore amministratore = f.getAmministratore(email);
 		request.setAttribute("amministratore", amministratore);
+		request.getSession().setAttribute("amministratore", amministratore);
 		if (!(amministratore.getPassword().equals(pwd))) {
 			/*TODO:
 			 * Aggiungere gestione della password sbagliata
