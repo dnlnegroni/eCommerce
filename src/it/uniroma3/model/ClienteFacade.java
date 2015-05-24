@@ -61,6 +61,7 @@ public class ClienteFacade {
 		return cliente;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Ordine> getOrders(Long id) {
 		Query q = this.entityManager.createQuery("SELECT c FROM Cliente c WHERE c.id= :id" );
 		q.setParameter("id", id);

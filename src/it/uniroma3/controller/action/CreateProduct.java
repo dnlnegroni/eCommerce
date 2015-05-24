@@ -22,11 +22,8 @@ public class CreateProduct implements Action {
 			Double price = Double.parseDouble(request.getParameter("costo"));
 			String description = request.getParameter("descrizione");
 			Integer quantity = Integer.parseInt(request.getParameter("quantita"));
-			
-			ProductFacade facade = new ProductFacade();
 			Prodotto product = new Prodotto(code, name, price, description, quantity);
 			request.getSession().setAttribute("prodotto", product);
-			
 			return "/newFornitore.jsp";
 		} else
 			return "/newProduct.jsp";

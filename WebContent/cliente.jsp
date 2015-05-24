@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,14 +22,10 @@
 				<a class="navbar-brand" href="#">eCommerce</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<form class="navbar-form navbar-left" role="search">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Cerca...">
-					</div>
-					<button type="submit" class="btn btn-default">Cerca</button>
-				</form>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<c:url value="/newCliente.jsp" />">Non sei registrato?</a></li>
+					<li>	
+						<a href="<c:url value="/controller/cliente.get?id=${cliente.id}"/>"> Bentornato, ${cliente.nome} ${cliente.cognome}	</a>
+					</li>
 					<li>
 						<a href="<c:url value="/controller/cliente.logout"/>">
 							Logout
@@ -41,14 +38,21 @@
 		<!-- /.container-fluid -->
 	</nav>
 	<div align="center">
-		<h1>${cliente.nome}</h1>
-		<h2>Details</h2>
+		<h1>${cliente.nome} <br/>
+			<small>Dettaglio Cliente</small> 
+		</h1>
 		<div>Nome: ${cliente.nome}</div>
 		<div>Cognome: ${cliente.cognome}</div>
 		<div>Indirizzo: ${cliente.indirizzo}</div>
 		<div>Email: ${cliente.email}</div>
-		<div>dataNascita: ${cliente.dataNascita}</div>
-		<div>dataRegistrazione: ${cliente.dataRegistrazione}</div>
+		<div>
+			Data di Nascita: 
+			<fmt:formatDate value="${cliente.dataNascita}" pattern="dd/MM/yyyy" />
+		</div>
+		<div>
+			Data di Registrazione: 
+			<fmt:formatDate value="${cliente.dataRegistrazione}" pattern="dd/MM/yyyy" />
+		</div>
 	</div>
 </body>
 </html>

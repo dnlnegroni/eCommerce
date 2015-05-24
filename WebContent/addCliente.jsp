@@ -9,8 +9,11 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="/bootstrap/css/bootstrap.min.css" />" />
 	<link rel="stylesheet" type="text/css" href="<c:url value="/css/template.css" />" />
 	<link rel="stylesheet" type="text/css" href="<c:url value="/bootstrap/css/jquery-ui.css" />" />
-	<title>InserimentoFornitore</title>
+	<title>Aggiungi Cliente</title>
 	<script type="text/javascript">
+	$(function() {			
+		$("#dataNascita").datepicker({changeMonth:true, changeYear: true, yearRange: "1900:c+nn", dateFormat: "dd/mm/yy" });	
+	});	
 	</script>
 </head>
 <body>
@@ -19,12 +22,12 @@
 	</h1>	
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
+			<!-- Mobile View -->
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">eCommerce</a>
+				<a class="navbar-brand" href="<c:url value="/indexCliente.jsp" />">eCommerce</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<c:url value="/newCliente.jsp" />">Non sei registrato?</a></li>
 					<li>	
 						<a href="#"> Bentornato, ${amministratore.nome} ${amministratore.cognome}	</a>
 					</li>
@@ -40,37 +43,41 @@
 		<!-- /.container-fluid -->
 	</nav>
 	<div align="center" style="border: 1px; border-color: black">
-		<form class="form-inline" action="<c:url value="/controller/fornitore.create" />" method="get">
+		<form class="form-inline" action="<c:url value="/controller/cliente.add" />" method="get">
 			<table >
 				<tr>
 					<td>
-						Piva: <input type="text" class="form-control" name="partitaIva" value="${param.partitaIva}" required/>
+						Name: <input type="text" class="form-control" name="nome" value="${param.nome}"/> ${nomeErr}
 					</td>
 				</tr>
 				<tr>
 					<td>
-						Telefono: <input type="text" class="form-control" name="telefono" value="${param.telefono}" required/>
+						Cognome: <input type="text" class="form-control" name="cognome" value="${param.cognome}"/> ${cognomeErr}
 					</td>
 				</tr>
 				<tr>
 					<td>
-						Indirizzo: <input type="text" class="form-control" name="indirizzo" value="${param.indirizzo}" required/>
+						Indirizzo: <input type="text" class="form-control" name="indirizzo" value="${param.indirizzo}"/> ${indirizzolErr}
 					</td>
 				</tr>
 				<tr>
 					<td>
-						Email: <input type="text" class="form-control" name="email" value="${param.email}" required/>
+						Email: <input type="text" class="form-control" name="email" value="${param.email}"/> ${emailErr}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Password: <input type="text" class="form-control" name="password" value="${param.password}"/>${passwordErr}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Data di Nascita: <input type="text" class="form-control" id="dataNascita" name="dataNascita" value="${param.dataNascita}"/>
 					</td>
 				</tr>
 				<tr align="right">
 					<td>
-						<button type="submit" name="submit" value="invia" class="btn btn-default">Inserisci Fornitore</button>
-					</td>
-				</tr>
-				<tr/>
-				<tr align="right">
-					<td class="input_scoreMedium">
-						<a class="btn btn-default" href="<c:url value="/controller/prodotto.inserisci" />" role="button">Conferma Inserimento Prodotto</a>
+						<button type="submit" name="submit" value="invia" class="btn btn-default">Sign in</button>
 					</td>
 				</tr>
 			</table>

@@ -3,7 +3,6 @@ package it.uniroma3.controller.action;
 import it.uniroma3.model.Fornitore;
 import it.uniroma3.model.FornitoreFacade;
 import it.uniroma3.model.Prodotto;
-import it.uniroma3.model.ProductFacade;
 
 import javax.servlet.http.HttpServletRequest;
 

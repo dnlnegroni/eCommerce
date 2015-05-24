@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,18 +38,45 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	<table>
-	<c:forEach var="ordine" items="${ordini}">
-		<tr>
-			<td>
-				<a href="<c:url value="/controller/ordine.get?id=${ordine.id}" />">
-					${ordine.id}
-				</a>
-			</td>
-			<td>
-				${ordine.dataApertura}
-			</td>
-		</tr>
-	</c:forEach>
-</table>
+	<div align="center">
+		<h1>Lista Ordini</h1>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>
+						IdOrdine
+					</th>
+					<th>
+						Data Apertura
+					</th>
+					<th>
+						Data Chiusura
+					</th>
+					<th>
+						Data Evasione
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="ordine" items="${ordini}">
+					<tr>
+						<td>
+							<a href="<c:url value="/controller/ordine.get?id=${ordine.id}" />">
+								${ordine.id}
+							</a>
+						</td>
+						<td>
+							<fmt:formatDate value="${ordine.dataApertura}" pattern="dd/MM/yyyy" />
+						</td>
+						<td>
+							<fmt:formatDate value="${ordine.dataChiusura}" pattern="dd/MM/yyyy" />
+						</td>
+						<td>
+							<fmt:formatDate value="${ordine.dataEvasione}" pattern="dd/MM/yyyy" />
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 </body>

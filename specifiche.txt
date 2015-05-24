@@ -1,5 +1,38 @@
-TODO: Descrizione testuale dei casi d'uso.
+Descrizione testuale dei casi d'uso.
 
+Caso d'uso UC1 : Consulta Listino
+	Attore Primario: utente non registrato
+	
+	Scenario di successo:
+		1. L'utente accede al sistema
+		2. L'utente sceglie di consultare il listino
+		3. Il sistema mostra all'utente la lista di prodotti presenti in magazzino
+		4. Il cliente seleziona uno dei prodotti
+		5. Il sistema mostra i dettagli del prodotto selezionato
+		6. L'utente ripete i passi 3-5 un numero indefinito di volte
+		
+Caso d'uso UC2 : Effettua Ordine
+	Attore Primario : Cliente (utente registrato) autenticato
+	
+	Scenario di successo:
+		1. Il cliente sceglie di fare un ordine
+		2. Il sistema mostra al cliente il catalogo dei prodotti
+		3. Il cliente aggiunge il prodotto all'ordine
+		4. Il sistema chiede all'untente la quantità
+		5. Il cliente immette la quantità
+		6. I passi 2-5 vengono ripetuti fino a che il cliente non vuole concludere l'ordine in corso.
+		7. L'ordine viene concluso
+		
+Caso d'uso UC3 : Consulta Ordini
+	Attore Primario: Cliente (utente registrato) autenticato
+		
+	Scenario di successo:
+		1. Il cliente scegli di consultare i propri ordini
+		2. Il sistema mostra gli ordini effettuati dal cliente
+		3. Il cliente seleziona un'ordine di cui vuole saperne i dettagli.
+		4. Il sistema mostra il dettaglio dell'ordine selezionato.
+		5. Il cliente ripete i passi 2-4 un numero indefinito di volte.
+		
 1. Creazione Cliente (sia come form di registrazione nella index button registrati) sia da parte dell'amministratore.
 2. Creazione Prodotto (attore: amministratore)
-3. Visualizzazione lista prodotti
+6. visualizzazione dati di un cliente partendo da un ordine

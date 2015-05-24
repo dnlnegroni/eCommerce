@@ -30,9 +30,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<p style="color: white">
-							Prodotti nel carrello: ${prodottiNelCarrello}
-						</p> 
+						<a> Prodotti nel carrello: ${prodottiNelCarrello} </a>
 					</li>
 					<li>	
 						<a href="<c:url value="/controller/cliente.get?id=${cliente.id}"/>"> Bentornato, ${cliente.nome} ${cliente.cognome}	</a>
@@ -50,7 +48,7 @@
 	</nav>
 	
 	<div class="container">
-		<h1>Lista RigheOrdine</h1>
+		<h1>Revisione Ordine</h1>
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -69,18 +67,21 @@
 				<c:forEach var="r" items="${righeOrdine}">
 					<tr>
 						<td>
-							<a href="<c:url value="/controller/product.get?id=${prodotto.id}" />">
-								${r.nomeProdotto}
-							</a>
+							${r.nomeProdotto}
 						</td>
-						<td>${r.prezzoUnitario}</td>
-						<td>${r.quantita}</td>
+						<td>
+							${r.prezzoUnitario}
+						</td>
+						<td>
+							${r.quantita}
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
-	
-	<a class="btn btn-default" href="<c:url value="/controller/ordine.concludi" />" role="button">Conferma Ordine</a>
+	<div class="container">
+		<a class="btn btn-default" href="<c:url value="/controller/ordine.concludi" />" role="button">Conferma Ordine</a>
+	</div>
 </body>
 </html>

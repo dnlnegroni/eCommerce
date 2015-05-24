@@ -40,14 +40,32 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	
-	<form action="<c:url value="/controller/product.create" />" method="get">
-	<div>Name: <input type="text" name="nome" value="${param.nome}"/> ${nameErr}</div>
-	<div>Code: <input type="text" name="codice" value="${param.codice}"/> ${codeErr}</div>
-	<div>Price: <input type="text" name="costo" value="${param.costo}"/> ${priceErr}</div>
-	<div>Description: <textarea rows="4" cols="50" name="descrizione">${param.descrizione}</textarea></div>
-	<div>Quantita: <input type="text" name="quantita" value="${param.quantita}"/> ${priceErr}</div>
-	<div><input type="submit" name="sumbit" value="invia" /></div>
-	</form>
+	<div align="center">
+		<form id="createProduct" action="<c:url value="/controller/product.create" />" role="form" data-toggle="validator" method="get">
+			<div class="form-group">
+				Name: 
+				<input type="text" name="nome" class="form-control" value="${param.nome}" required/>
+			</div>
+			<div class="form-group">
+				Code: 
+				<input type="text" name="codice" class="form-control" value="${param.codice}" required/>
+			</div>
+			<div class="form-group">
+				Price: 
+				<input type="text" name="costo" class="form-control" value="${param.costo}" required/> ${priceErr}
+			</div>
+			<div class="form-group">
+			 	<label class="control-label">Quantita</label>
+				<input type="text" name="quantita" id = "quantita" class="form-control" value="${param.quantita}" required/>
+			</div>
+			<div class="form-group">
+				Description: 
+				<textarea rows="4" cols="50" class="form-control" name="descrizione">${param.descrizione}</textarea>
+			</div>
+			<div class="form-group">
+				<input type="submit" class="btn btn-default" name="sumbit" value="invia" />
+			</div>
+		</form>
+	</div>
 </body>
 </html>

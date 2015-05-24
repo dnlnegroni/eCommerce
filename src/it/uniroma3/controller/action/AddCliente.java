@@ -1,6 +1,3 @@
-/**
- * 
- */
 package it.uniroma3.controller.action;
 
 import it.uniroma3.controller.helper.HelperCliente;
@@ -13,15 +10,10 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * @author daniele
- *
- */
-public class CreateCliente implements Action{
+public class AddCliente implements Action {
 	
 	@Override
 	public String perform(HttpServletRequest request) {
-		
 		HelperCliente helper = new HelperCliente();
 		
 		if (helper.isValid(request)) {
@@ -43,11 +35,11 @@ public class CreateCliente implements Action{
 			
 			ClienteFacade facade = new ClienteFacade();
 			Cliente cliente = facade.createCliente(nome, cognome, indirizzo, email, password, dataNascita, dataRegistrazione);
-			request.getSession().setAttribute("cliente", cliente);
-			return "/indexCliente.jsp";
+			request.setAttribute("cliente", cliente);
+			return "/indexAmministratore.jsp";
 		} else {
-			return "/newCliente.jsp";
+			return "/addCliente.jsp";
 		}
 	}
-
+	
 }

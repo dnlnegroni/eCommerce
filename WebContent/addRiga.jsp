@@ -41,9 +41,13 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	<form action="<c:url value="/controller/riga.crea" />" method="get">
-		<div>Quantita desiderata: <input type="text" name="quantita" value="${param.quantita}"/> </div>
-		<div><input class="btn btn-default" type="submit" name="sumbit" value="invia" /></div>
-	</form>
+	<div align="center">
+		<form action="<c:url value="/controller/riga.crea" />" method="get">
+			<div>Quantita desiderata: 
+				<input type="text" name="quantita" value="${param.quantita}" required/>
+				<input class="btn btn-default" type="submit" name="sumbit" value="invia" /> 
+			</div>
+		</form>
+	</div>
 </body>
 </html>

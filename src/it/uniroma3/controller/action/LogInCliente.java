@@ -3,8 +3,7 @@
  */
 package it.uniroma3.controller.action;
 
-import it.uniroma3.controller.action.Action;
-import it.uniroma3.model.Amministratore;
+import it.uniroma3.controller.helper.HelperLoginCliente;
 import it.uniroma3.model.Cliente;
 import it.uniroma3.model.LogInFacade;
 
@@ -21,19 +20,17 @@ public class LogInCliente implements Action{
     private LogInFacade facade;
 	
 	public String perform(HttpServletRequest request) {
-		String email = request.getParameter("email");
-		String pwd = request.getParameter("password");
-		LogInFacade f = new LogInFacade();
-		Cliente cliente = f.getCliente(email);
-		request.setAttribute("cliente", cliente);
-		request.getSession().setAttribute("cliente", cliente);
-		if (!(cliente.getPassword().equals(pwd))) {
-			/*TODO:
-			 * Aggiungere gestione della password sbagliata
-			 */
-			return "/test.jsp";
-		} else {
+		HelperLoginCliente helper = new HelperLoginCliente();
+		if(helper.isValid(request)) {
+			LogInFacade lf = new LogInFacade();		
+			String email = request.getParameter("email");
+			String pwd = request.getParameter("password");
+			Cliente cliente = lf.getCliente(email,pwd);
+			request.setAttribute("cliente", cliente);
+			request.getSession().setAttribute("cliente", cliente);
 			return "/indexCliente.jsp";
+		} else {
+			return "/loginCliente.jsp";
 		}
 	}
 	

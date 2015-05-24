@@ -3,12 +3,11 @@
  */
 package it.uniroma3.controller.action;
 
+import it.uniroma3.controller.helper.HelperLoginAmministratore;
+import it.uniroma3.controller.helper.HelperLoginCliente;
 import it.uniroma3.model.Amministratore;
+import it.uniroma3.model.Cliente;
 import it.uniroma3.model.LogInFacade;
-import it.uniroma3.model.Prodotto;
-import it.uniroma3.model.ProductFacade;
-
-import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;
@@ -19,23 +18,18 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class LogInAmministratore implements Action{
 	
-	@EJB
-    private LogInFacade facade;
-	
 	public String perform(HttpServletRequest request) {
-		String email = request.getParameter("email");
-		String pwd = request.getParameter("password");
-		LogInFacade f = new LogInFacade();
-		Amministratore amministratore = f.getAmministratore(email);
-		request.setAttribute("amministratore", amministratore);
-		request.getSession().setAttribute("amministratore", amministratore);
-		if (!(amministratore.getPassword().equals(pwd))) {
-			/*TODO:
-			 * Aggiungere gestione della password sbagliata
-			 */
-			return "/test.jsp";
-		} else {
+		HelperLoginAmministratore helper = new HelperLoginAmministratore();
+		if(helper.isValid(request)) {
+			String email = request.getParameter("email");
+			String pwd = request.getParameter("password");
+			LogInFacade f = new LogInFacade();
+			Amministratore amministratore = f.getAmministratore(email,pwd);
+			request.setAttribute("amministratore", amministratore);
+			request.getSession().setAttribute("amministratore", amministratore);
 			return "/indexAmministratore.jsp";
+		} else {
+			return "/loginAmministratore.jsp";
 		}
 	}
 	

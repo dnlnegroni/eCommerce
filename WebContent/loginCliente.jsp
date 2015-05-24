@@ -44,14 +44,14 @@
 		<form class="form-inline" action="<c:url value="/controller/cliente.logIn" />" method="get">
 			<div class="form-group">
 				<label class="sr-only">Email address</label>
-				<input type="text" class="form-control" name="email" value="${param.email}" placeholder="Enter email">
-			</div>
-			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Email" name="email" value="${param.email}" required>
 				<label class="sr-only">Password</label> 
-				<input type="password" class="form-control" name="password" value="${param.password}" placeholder="Password">			
+				<input type="password" class="form-control" name="password" value="${param.password}" placeholder="Password" required>	
 			</div>
 			<button type="submit" name="submit" value="invia" class="btn btn-default">Sign in</button>
 		</form>
+		<br/>
+		${loginFail}
 	</div>
 </body>
 </html>

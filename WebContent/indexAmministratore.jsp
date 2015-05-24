@@ -20,7 +20,7 @@
 		<div class="container-fluid">
 			<!-- Mobile View -->
 			<div class="navbar-header">
-				<a class="navbar-brand" href="<c:url value="/indexCliente.jsp" />">eCommerce</a>
+				<a class="navbar-brand" href="<c:url value="/indexAmministratore.jsp" />">eCommerce</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
@@ -43,10 +43,13 @@
 			<a href="<c:url value="/newProduct.jsp" />">Inserisci Prodotto</a>
 		</li>
 		<li>
-			<a href="<c:url value="/newCliente.jsp" />">Inserisci Cliente</a>
+			<a href="<c:url value="/addCliente.jsp" />">Inserisci Cliente</a>
 		</li>
 		<li>
-			<a href="<c:url value="/controller/ordini.lista" />">Cerca Cliente da Ordine</a>
+			<a href="<c:url value="/controller/ordini.lista" />">Dettaglio cliente da Ordine</a>
+		</li>
+		<li>
+			<a href="<c:url value="/controller/ordini.evadi" />">Evasione Ordini</a>
 		</li>
 	</ul>
 </body>

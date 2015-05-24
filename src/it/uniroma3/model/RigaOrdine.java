@@ -19,7 +19,9 @@ public class RigaOrdine {
 	private Integer quantita;
 	private Double prezzoUnitario;
 	
-	
+	public RigaOrdine(){
+		
+	}
 
 	public RigaOrdine(Prodotto p, Integer q){
 		this.prodotto=p;

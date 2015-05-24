@@ -26,12 +26,6 @@
 				<a class="navbar-brand" href="#">eCommerce</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<form class="navbar-form navbar-left" role="search">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Cerca...">
-					</div>
-					<button type="submit" class="btn btn-default">Cerca</button>
-				</form>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="<c:url value="/newCliente.jsp" />">Non sei registrato?</a></li>
 					<li class="dropdown">

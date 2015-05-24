@@ -21,12 +21,6 @@
 				<a class="navbar-brand" href="#">eCommerce</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<form class="navbar-form navbar-left" role="search">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Cerca...">
-					</div>
-					<button type="submit" class="btn btn-default">Cerca</button>
-				</form>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="<c:url value="/newCliente.jsp" />">Non sei registrato?</a></li>
 					<li class="dropdown">
@@ -49,13 +43,12 @@
 	<div align="center" style="border: 1px">
 		<form class="form-inline" action="<c:url value="/controller/amministratore.logIn" />" method="get">
 			<div class="form-group">
-				<input type="text" class="form-control" name="email" value="${param.email}" placeholder="Email">
-			</div>
-			<div class="form-group">
-				<input type="password" class="form-control" name="password" value="${param.password}" placeholder="Password">			
+				<input type="text" class="form-control" name="email" value="${param.email}" placeholder="Email" required>
+				<input type="password" class="form-control" name="password" value="${param.password}" placeholder="Password" required>			
 			</div>
 			<button type="submit" name="submit" value="invia" class="btn btn-default">Sign in</button>
 		</form>
 	</div>
+	${loginFail}
 </body>
 </html>

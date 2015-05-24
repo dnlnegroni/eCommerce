@@ -39,10 +39,13 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	<h1>${product.nome}</h1>
-	<h2>Details</h2>
-	<div>Code: ${product.codice}</div>
-	<div>Price: ${product.costo}</div>
-	<div>Description: ${product.descrizione}</div>
+	<div align="center">
+		<h1>${product.nome} <br/>
+			<small>Dettaglio Prodotto</small>
+		</h1>
+		<div>Codice: ${product.codice}</div>
+		<div>Prezzo: ${product.costo}</div>
+		<div>Descrizione: ${product.descrizione}</div>
+	</div>
 </body>
 </html>

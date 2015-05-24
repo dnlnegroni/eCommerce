@@ -41,19 +41,31 @@ public class LogInFacade {
 		}
 	}
 	
-	public Amministratore getAmministratore(String email) {
-		Query query = entityManager.createQuery("SELECT a FROM Amministratore a WHERE a.email=" + "'" + email + "'");
+	@SuppressWarnings("unchecked")
+	public Amministratore getAmministratore(String email, String pwd) {
+		Amministratore amministratore;
+		Query query = entityManager.createQuery("SELECT a FROM Amministratore a WHERE a.email=" + "'" + email + "'"+ "AND a.password=" +"'"+pwd+"'");
         List<Amministratore> listaAmministratore = query.getResultList();
-        Amministratore amministratore = listaAmministratore.get(0);
+        if (listaAmministratore.size() > 0) {
+        	amministratore = listaAmministratore.get(0);
+        } else {
+        	amministratore = null;
+        }
 		entityManager.close();
 		emf.close();
 		return amministratore;
 	}
 	
-	public Cliente getCliente(String email) {
-		Query query = entityManager.createQuery("SELECT c FROM Cliente c WHERE c.email=" + "'" + email + "'");
+	@SuppressWarnings("unchecked")
+	public Cliente getCliente(String email, String pwd) {
+		Cliente cliente;
+		Query query = entityManager.createQuery("SELECT c FROM Cliente c WHERE c.email=" + "'" + email + "'" + "AND c.password=" +"'"+pwd+"'");
         List<Cliente> listaClienti = query.getResultList();
-        Cliente cliente = listaClienti.get(0);
+        if (listaClienti.size() > 0) {
+        	cliente = listaClienti.get(0);
+        } else {
+        	cliente = null;
+        }
 		entityManager.close();
 		emf.close();
 		return cliente;

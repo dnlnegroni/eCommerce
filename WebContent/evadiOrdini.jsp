@@ -1,6 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,12 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="/bootstrap/css/bootstrap.min.css" />" />
 	<link rel="stylesheet" type="text/css" href="<c:url value="/css/template.css" />" />
 	<link rel="stylesheet" type="text/css" href="<c:url value="/bootstrap/css/jquery-ui.css" />" />
-	<title>Crea Ordine</title>
-    
-    <!-- Javascript -->
-    <script type="text/javascript">
-    
-    </script>
+	<title>indexAmministratore</title>
 </head>
 <body>
 	<h1 align="center">
@@ -24,19 +18,17 @@
 	</h1>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
+			<!-- Mobile View -->
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">eCommerce</a>
+				<a class="navbar-brand" href="<c:url value="/indexCliente.jsp" />">eCommerce</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a href="#"> Prodotti nel carrello: ${prodottiNelCarrello}</a>
-					</li>
 					<li>	
-						<a href="<c:url value="/controller/cliente.get?id=${cliente.id}"/>"> Bentornato, ${cliente.nome} ${cliente.cognome}	</a>
+						<a href="#"> Bentornato, ${amministratore.nome} ${amministratore.cognome}	</a>
 					</li>
 					<li>
-						<a href="<c:url value="/controller/cliente.logout"/>">
+						<a href="<c:url value="/controller/amministratore.logout"/>">
 							Logout
 						</a>
 					</li>
@@ -46,41 +38,47 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	<div class="container">
-		<h1>Catalogo Prodotti</h1>
+	<div align="center">
+		<h1>Lista Ordini</h1>
 		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>
-						NomeProdotto
+						IdOrdine
 					</th>
 					<th>
-						Costo
+						Data Apertura
 					</th>
 					<th>
-						Quantita In magazzino
+						Data Chiusura
+					</th>
+					<th>
+						Data Evasione
 					</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="prodotto" items="${products}">
+				<c:forEach var="ordine" items="${ordini}">
 					<tr>
 						<td>
-							<a href="<c:url value="/controller/product.get?id=${prodotto.id}" />">
-								${prodotto.nome}
-							</a>
+							${ordine.id}
 						</td>
-						<td>${prodotto.costo}</td>
-						<td>${prodotto.quantita}</td>
 						<td>
-							<a class="btn btn-default" href="<c:url value="/controller/product2.get?id=${prodotto.id}" />" role="button">Aggiungi al carrello</a>
+							<fmt:formatDate value="${ordine.dataApertura}" pattern="dd/MM/yyyy" />
+						</td>
+						<td>
+							<fmt:formatDate value="${ordine.dataChiusura}" pattern="dd/MM/yyyy" />
+						</td>
+						<td>
+							<fmt:formatDate value="${ordine.dataEvasione}" pattern="dd/MM/yyyy" />
+						</td>
+						<td>
+							<a class="btn btn-default" href="<c:url value="/controller/ordine.evadi?id=${ordine.id}" />" role="button">Evadi Ordine</a>
 						</td>
 					</tr>
 				</c:forEach>
-
 			</tbody>
 		</table>
 	</div>
-	<a class="btn btn-default" href="<c:url value="/controller/ordine.dettaglio" />" role="button">Dettaglio Ordine</a>
 </body>
 </html>
