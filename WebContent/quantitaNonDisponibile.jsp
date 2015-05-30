@@ -1,5 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="/bootstrap/css/bootstrap.min.css" />" />
 	<link rel="stylesheet" type="text/css" href="<c:url value="/css/template.css" />" />
 	<link rel="stylesheet" type="text/css" href="<c:url value="/bootstrap/css/jquery-ui.css" />" />
-	<title>EvasioneOrdini</title>
+	<title>indexAmministratore</title>
 </head>
 <body>
 	<h1 align="center">
@@ -20,7 +20,7 @@
 		<div class="container-fluid">
 			<!-- Mobile View -->
 			<div class="navbar-header">
-				<a class="navbar-brand" href="<c:url value="/indexCliente.jsp" />">eCommerce</a>
+				<a class="navbar-brand" href="<c:url value="/indexAmministratore.jsp" />">eCommerce</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
@@ -38,54 +38,9 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	<div align="center">
-		<h1>Lista Ordini</h1>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>
-						IdOrdine
-					</th>
-					<th>
-						Data Apertura
-					</th>
-					<th>
-						Data Chiusura
-					</th>
-					<th>
-						Data Evasione
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="ordine" items="${ordini}">
-					<tr>
-						<td>
-							${ordine.id}
-						</td>
-						<td>
-							<fmt:formatDate value="${ordine.dataApertura}" pattern="dd/MM/yyyy" />
-						</td>
-						<td>
-							<fmt:formatDate value="${ordine.dataChiusura}" pattern="dd/MM/yyyy" />
-						</td>
-						<td>
-							<fmt:formatDate value="${ordine.dataEvasione}" pattern="dd/MM/yyyy" />
-						</td>
-						<c:choose>
-							<c:when test="${ordine.dataEvasione eq null}">
-								<td>
-									<a class="btn btn-default" href="<c:url value="/controller/ordine.evadi?id=${ordine.id}" />" role="button">Evadi Ordine</a>
-								</td>
-							</c:when>
-							<c:otherwise>
-								<td/>
-							</c:otherwise>
-						</c:choose>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+	<div>
+		<h1>L'ordine non può essere evaso perchè non ci sono prodotti a sufficienza nel magazzino.</h1>
+		<h2>Riprovare più tardi.</h2>
 	</div>
 </body>
 </html>

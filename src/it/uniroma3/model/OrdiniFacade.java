@@ -1,5 +1,6 @@
 package it.uniroma3.model;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.naming.Context;
@@ -41,6 +42,7 @@ public class OrdiniFacade {
 	public Ordine persistOrdine(Ordine o) {
 		EntityTransaction tx = entityManager.getTransaction();
 		tx.begin();
+		o.setDataChiusura(new Date());
 		entityManager.persist(o);
 		tx.commit();
 		entityManager.close();
@@ -48,13 +50,24 @@ public class OrdiniFacade {
 		return o;
 	}
 	
-	public Ordine getOrdine(Long id) {
+	public Ordine getOrdine(Long id) {		
 		Ordine o = entityManager.find(Ordine.class, id);
 		entityManager.close();
 		emf.close();
 		return o;
 	}
 	
+//	public Ordine getOrdine(Long id) {
+//		Query q = this.entityManager.createQuery("Select o FROM Ordine o WHERE o.id = :id");
+//		q.setParameter("id", id);
+//		List<Ordine> l = q.getResultList();
+//		Ordine o = l.get(0);
+//		entityManager.close();
+//		emf.close();
+//		return o;
+//	}
+	
+	@SuppressWarnings("unchecked")
 	public List<RigaOrdine> getRigherOrdine(Long id) {
 		Query q = this.entityManager.createQuery("Select o FROM Ordine o WHERE o.id = :id");
 		q.setParameter("id", id);
@@ -73,6 +86,37 @@ public class OrdiniFacade {
 		entityManager.close();
 		emf.close();
 		return ordini;
+	}
+	
+	public List<Ordine> getAllClosedOrders() {
+		Query q = this.entityManager.createQuery("Select o FROM Ordine o WHERE o.dataChiusura is not null");
+		List<Ordine> l = q.getResultList();
+		entityManager.close();
+		emf.close();
+		return l;
+	}
+	
+	public boolean evadiOrdine(Long id) {
+//		emf = Persistence.createEntityManagerFactory("ecommerce-unit");
+//		entityManager = emf.createEntityManager();
+		Query q = this.entityManager.createQuery("Select o FROM Ordine o WHERE o.id = :id");
+		q.setParameter("id", id);
+		List<Ordine> l = q.getResultList();
+		Ordine o = l.get(0);
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+		for(RigaOrdine r : o.getRigheOrdine()) {
+			Prodotto p = r.getProdotto();
+			if(p.getQuantita() < r.getQuantita()) 
+				return false;
+			p.setQuantita(p.getQuantita()-r.getQuantita());
+			entityManager.merge(p);
+		}
+		entityManager.merge(o);
+		tx.commit();
+		entityManager.close();
+		emf.close();
+		return true;
 	}
 
 }

@@ -12,7 +12,7 @@ public class EvadiOrdini implements Action {
 	@Override
 	public String perform(HttpServletRequest request) {
 		OrdiniFacade facade = new OrdiniFacade();
-		List<Ordine> ordini = facade.getAllOrders();
+		List<Ordine> ordini = facade.getAllClosedOrders();
 		request.setAttribute("ordini", ordini);	
 		return "/evadiOrdini.jsp";
 	}

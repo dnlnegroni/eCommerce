@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class HelperCliente {
 	
-public boolean isValid(HttpServletRequest request) {
+	public boolean isValid(HttpServletRequest request) {
 		
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");

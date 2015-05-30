@@ -49,7 +49,7 @@
 				</tr>
 				<tr>
 					<td>
-						Telefono: <input type="text" class="form-control" name="telefono" value="${param.telefono}" required/>
+						Telefono: <input type="text" class="form-control" name="telefono" value="${param.telefono}" required/> ${telErr}
 					</td>
 				</tr>
 				<tr>

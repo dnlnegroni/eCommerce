@@ -23,7 +23,7 @@ public class Ordine {
 	private Long id;
 	
 	@Temporal(TemporalType.DATE)
-	Date dataApertura;
+	private Date dataApertura;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dataChiusura;
