@@ -1,0 +1,254 @@
+-- MySQL dump 10.13  Distrib 5.6.19, for osx10.7 (i386)
+--
+-- Host: 127.0.0.1    Database: ecommerce
+-- ------------------------------------------------------
+-- Server version	5.6.23
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `Amministratore`
+--
+
+DROP TABLE IF EXISTS `Amministratore`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Amministratore` (
+  `id` bigint(20) NOT NULL,
+  `cognome` varchar(255) DEFAULT NULL,
+  `dataNascita` date DEFAULT NULL,
+  `dataRegistrazione` date DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `indirizzo` varchar(255) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Amministratore`
+--
+
+LOCK TABLES `Amministratore` WRITE;
+/*!40000 ALTER TABLE `Amministratore` DISABLE KEYS */;
+INSERT INTO `Amministratore` VALUES (0,'negroni','1989-05-22','2015-05-17','dnl.negroni@gmail.com','via Rivarone 112','Daniele','negroni'),(1,'merialdo',NULL,NULL,'p.merialdo@uniroma3.it',NULL,'Paolo','merialdo');
+/*!40000 ALTER TABLE `Amministratore` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Cliente`
+--
+
+DROP TABLE IF EXISTS `Cliente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Cliente` (
+  `id` bigint(20) NOT NULL,
+  `cognome` varchar(255) DEFAULT NULL,
+  `dataNascita` date DEFAULT NULL,
+  `dataRegistrazione` date DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `indirizzo` varchar(255) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Cliente`
+--
+
+LOCK TABLES `Cliente` WRITE;
+/*!40000 ALTER TABLE `Cliente` DISABLE KEYS */;
+INSERT INTO `Cliente` VALUES (1,'negroni','2015-05-22','2015-05-17','dnl.negroni@gmail.com','rivarone 112','daniele','negroni'),(3401,'patane','2015-05-24','2015-05-24','francipa@gmail.com','torrevecchia 114','francesco','patane');
+/*!40000 ALTER TABLE `Cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Fornitore`
+--
+
+DROP TABLE IF EXISTS `Fornitore`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Fornitore` (
+  `id` bigint(20) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `indirizzo` varchar(255) DEFAULT NULL,
+  `partitaIva` varchar(255) DEFAULT NULL,
+  `telefono` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Fornitore`
+--
+
+LOCK TABLES `Fornitore` WRITE;
+/*!40000 ALTER TABLE `Fornitore` DISABLE KEYS */;
+INSERT INTO `Fornitore` VALUES (51,NULL,'via 1','PIVA F1',NULL),(2651,'a','a','a','a'),(2652,'b','b','b','b'),(3301,'risparmiocasa@gmail.com','via rivarone 112','RisparmioCasa','063124567'),(3302,'risparmiocasa@gmail.com','via rivarone 112','RisparmioCasa','063124567'),(3851,'hashdahsdhahsd','via le dita dal naso 5','123456789','23456789');
+/*!40000 ALTER TABLE `Fornitore` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `OPENJPA_SEQUENCE_TABLE`
+--
+
+DROP TABLE IF EXISTS `OPENJPA_SEQUENCE_TABLE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `OPENJPA_SEQUENCE_TABLE` (
+  `ID` tinyint(4) NOT NULL,
+  `SEQUENCE_VALUE` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `OPENJPA_SEQUENCE_TABLE`
+--
+
+LOCK TABLES `OPENJPA_SEQUENCE_TABLE` WRITE;
+/*!40000 ALTER TABLE `OPENJPA_SEQUENCE_TABLE` DISABLE KEYS */;
+INSERT INTO `OPENJPA_SEQUENCE_TABLE` VALUES (0,4601);
+/*!40000 ALTER TABLE `OPENJPA_SEQUENCE_TABLE` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Ordine`
+--
+
+DROP TABLE IF EXISTS `Ordine`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Ordine` (
+  `id` bigint(20) NOT NULL,
+  `dataApertura` date DEFAULT NULL,
+  `dataChiusura` date DEFAULT NULL,
+  `dataEvasione` date DEFAULT NULL,
+  `CLIENTE_ID` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `CLIENTE_ID` (`CLIENTE_ID`),
+  CONSTRAINT `ordine_ibfk_1` FOREIGN KEY (`CLIENTE_ID`) REFERENCES `Cliente` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Ordine`
+--
+
+LOCK TABLES `Ordine` WRITE;
+/*!40000 ALTER TABLE `Ordine` DISABLE KEYS */;
+INSERT INTO `Ordine` VALUES (4301,'2015-06-10','2015-06-10',NULL,1),(4401,'2015-06-10','2015-06-10',NULL,1),(4501,'2015-06-10','2015-06-10',NULL,1);
+/*!40000 ALTER TABLE `Ordine` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Prodotto`
+--
+
+DROP TABLE IF EXISTS `Prodotto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Prodotto` (
+  `id` bigint(20) NOT NULL,
+  `codice` varchar(255) DEFAULT NULL,
+  `costo` double DEFAULT NULL,
+  `descrizione` varchar(255) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `quantita` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Prodotto`
+--
+
+LOCK TABLES `Prodotto` WRITE;
+/*!40000 ALTER TABLE `Prodotto` DISABLE KEYS */;
+INSERT INTO `Prodotto` VALUES (1,'000000',10.5,'A wonderful bla bla','Test',NULL),(101,'1',1,'prova','prova',1),(151,'2',2,'secondo prodotto','prova2',2),(2601,'1',1,'riso','riso',1),(2701,'1',1,'e','w',1),(3251,'0.50',0.5,'Un classico e banale pacchetto di fazzoletti','Pacchetto di Fazzoletti',9),(3351,'10',10,'Tastiera PC/mac qwerty','Tastiera',16),(3651,'1',1,'Un cucchiano da caffè','cucchiaino',7),(3801,'1',1,'occhiali da sole','occhiali',8),(4251,'500',500,'un telefono','telefono',10);
+/*!40000 ALTER TABLE `Prodotto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Prodotto_Fornitore`
+--
+
+DROP TABLE IF EXISTS `Prodotto_Fornitore`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Prodotto_Fornitore` (
+  `PRODOTTI_ID` bigint(20) DEFAULT NULL,
+  `FORNITORI_ID` bigint(20) DEFAULT NULL,
+  KEY `PRODOTTI_ID` (`PRODOTTI_ID`),
+  KEY `FORNITORI_ID` (`FORNITORI_ID`),
+  CONSTRAINT `prodotto_fornitore_ibfk_1` FOREIGN KEY (`PRODOTTI_ID`) REFERENCES `Prodotto` (`id`),
+  CONSTRAINT `prodotto_fornitore_ibfk_2` FOREIGN KEY (`FORNITORI_ID`) REFERENCES `Fornitore` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Prodotto_Fornitore`
+--
+
+LOCK TABLES `Prodotto_Fornitore` WRITE;
+/*!40000 ALTER TABLE `Prodotto_Fornitore` DISABLE KEYS */;
+INSERT INTO `Prodotto_Fornitore` VALUES (1,51),(2601,2651),(2601,2652),(3251,3301),(3251,3302),(3801,3851);
+/*!40000 ALTER TABLE `Prodotto_Fornitore` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `RigaOrdine`
+--
+
+DROP TABLE IF EXISTS `RigaOrdine`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `RigaOrdine` (
+  `id` bigint(20) NOT NULL,
+  `quantita` int(11) DEFAULT NULL,
+  `idOrdine` bigint(20) DEFAULT NULL,
+  `PRODOTTO_ID` bigint(20) DEFAULT NULL,
+  `nomeProdotto` varchar(255) DEFAULT NULL,
+  `prezzoUnitario` double DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idOrdine` (`idOrdine`),
+  KEY `PRODOTTO_ID` (`PRODOTTO_ID`),
+  CONSTRAINT `rigaordine_ibfk_1` FOREIGN KEY (`idOrdine`) REFERENCES `Ordine` (`id`),
+  CONSTRAINT `rigaordine_ibfk_2` FOREIGN KEY (`PRODOTTO_ID`) REFERENCES `Prodotto` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `RigaOrdine`
+--
+
+LOCK TABLES `RigaOrdine` WRITE;
+/*!40000 ALTER TABLE `RigaOrdine` DISABLE KEYS */;
+INSERT INTO `RigaOrdine` VALUES (4351,10,4301,3651,'cucchiaino',1),(4451,1,4401,3351,'Tastiera',10),(4551,2,4501,3251,'Pacchetto di Fazzoletti',0.5),(4552,2,4501,3801,'occhiali',1),(4553,1,4501,4251,'telefono',500);
+/*!40000 ALTER TABLE `RigaOrdine` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2015-06-10 15:20:03

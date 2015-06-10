@@ -41,12 +41,12 @@
 		<!-- /.container-fluid -->
 	</nav>
 	<div align="center" style="border: 1px">
-		<form class="form-inline" action="<c:url value="/controller/cliente.logIn" />" method="get">
+		<form class="form-inline" id="loginForm" action="<c:url value="/controller/cliente.logIn" />" method="get">
 			<div class="form-group">
 				<label class="sr-only">Email address</label>
-				<input type="text" class="form-control" placeholder="Email" name="email" value="${param.email}" required>
+				<input type="text" class="item-input-wrapper form-control" placeholder="Email" name="email" value="${param.email}" required>
 				<label class="sr-only">Password</label> 
-				<input type="password" class="form-control" name="password" value="${param.password}" placeholder="Password" required>	
+				<input type="password" class="item-input-wrapper form-control" name="password" value="${param.password}" placeholder="Password" required>	
 			</div>
 			<button type="submit" name="submit" value="invia" class="btn btn-default">Sign in</button>
 		</form>

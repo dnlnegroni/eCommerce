@@ -33,6 +33,43 @@ Caso d'uso UC3 : Consulta Ordini
 		4. Il sistema mostra il dettaglio dell'ordine selezionato.
 		5. Il cliente ripete i passi 2-4 un numero indefinito di volte.
 		
-1. Creazione Cliente (sia come form di registrazione nella index button registrati) sia da parte dell'amministratore.
-2. Creazione Prodotto (attore: amministratore)
-6. visualizzazione dati di un cliente partendo da un ordine
+Caso d'uso UC4 : Inserimento Prodotto
+	Attore primario : Amministratore
+	
+	Scenario di successo:
+		1. L'amministratore sceglie di inserire un prodotto
+		2. L'amministratore inserisce nome, codice, prezzo, quantita, descrizione
+		3. L'amministratore inserisce i dati del fornitore (partitaIva, telefono, indirizzo, email)
+		4. L'amministratore conferma l'inserimento del fornitore
+		5. I passi 3-4 vengono ripetuti finche non viene confermato il prodotto
+		6. L'amministratore conferma l'inserimento del prodotto
+
+Caso d'uso UC5 : Recupero indirizzo cliente
+	Attore primario : Amministratore
+	
+	Scenario di successo:
+		1. L'amministratore sceglie l'attività "Dettaglio Cliente da Ordine"
+		2. Il sistema mostra la lista degli ordini di tutti i clienti con relative date (apertura,chiusura,evasione) 
+		3. L'amministratore sceglie di visualizzare i dettagli del cliente di un determinato ordine selezionando l'attività "Dettaglio Cliente"
+		4. Il sistema mostra i dettagli dell'utente che ha effettuato l'ordine selezionato.
+
+
+Caso d'uso UC6 : Evasione ordine
+	Attore primario : Amministratore
+	
+	Scenario di successo:
+		1. L'amministratore sceglie di evadere un ordine selezionando l'attività "Evasione ordini"
+		2. Il sistema mostra la lista di tutti gli ordini
+		3. L'amministratore seleziona un ordine chiuso, ma non evaso, da evadere selezionando l'attività "Evadi ordine"
+		4. L'ordine viene evaso
+	Eccezione:
+		3.a. Qualora in magazzino non fosse presente la quantità di prodotti specificata nell'ordine, il sistema provvede ad informare l'amministratore che l'ordine non può ancora essere evaso.
+		
+Caso d'uso UC7 : Registrazione Cliente
+	Attore primario : Utente non registrato
+	
+	Scenario di successo:
+		1. L'utente non registrato raggiunge il sistema e seleziona l'attività "Registrati"
+		2. L'utente non registrato inserisce nome, cognome, indirizzo, mail, password e dataDiNascita
+		3. L'utente non registrato conferma i dati inseriti
+		4. Il sistema memorizza l'utente rendendolo a tutti gli effetti un Cliente e loggandolo automaticamente.

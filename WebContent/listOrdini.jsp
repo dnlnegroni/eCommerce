@@ -61,7 +61,7 @@
 				<c:forEach var="ordine" items="${ordini}">
 					<tr>
 						<td>
-							<a href="<c:url value="/controller/ordine.getCliente?id=${ordine.id}" />">
+							<a href="<c:url value="/controller/ordine.get?id=${ordine.id}" />">
 								${ordine.id}
 							</a>
 						</td>
